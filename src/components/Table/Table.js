@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { table } from "react-bootstrap";
+import { table, col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 
@@ -34,7 +34,7 @@ export default function Table() {
 
 
     return (
-        <div>
+        <div className='container'>
             <input
                 className='mt-5 mb-5 w-25'
                 placeholder='Filter Country'
@@ -48,8 +48,8 @@ export default function Table() {
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Capital</th>
-                            <th scope="col">Flag</th>
                             <th scope="col">Region</th>
+                            <th scope="col">Flag</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,10 +57,10 @@ export default function Table() {
                             filtered.map((country, index) =>
 
                                 <tr key={index}>
-                                    <td> {country.name} </td>
-                                    <td> {country.capital} </td>
-                                    <td> {country.region} </td>
-                                    <td> <img style={{ width: "200px" }} src={country.flags.svg} /> </td>
+                                    <td className='w-25'> {country.name} </td>
+                                    <td className='w-25'> {country.capital} </td>
+                                    <td className='w-25'> {country.region} </td>
+                                    <td className='w-25'> <img style={{ width: "100px" }} src={country.flags.svg} /> </td>
                                 </tr>
                             )
                         }
